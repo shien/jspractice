@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+.title{
+    font-family: "游明朝", YuMincho, "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+    text-align: center;
+    margin-top: 300px;
+    font-size: 100px;
+}
+#color-change{
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+
+*{margin: 0;padding: 0;list-style: none;box-sizing: border-box;}
+.listQ3{
+    width: 1000px;
+    margin: 300px auto 0 auto;
+    overflow: hidden;
+}
+.listQ3 li{
+    width: 300px;
+    float: left;
+    padding: 20px;
+    background-color: pink;
+    margin-right: 20px;
+}
+
+h1.happy-birthday {
+    text-align: center;
+    color: red;
+    font-size: 50px;
+    width: 100%;
+    font-weight: bold;
+    color: #458fa0;
+    display: none;
+}
+.input-group{
+    width: 500px;
+    margin: 200px auto 0 auto;
+}
+ul.listQ7{
+    width: 1000px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    list-style: none;
+}
+li.listQ7{
+    height: 100px;
+    width: 100px;
+    background-color: #1d4177;
+    margin-right: 10px;
+}
+li.listQ7:nth-child(1){background-color: rgb(0, 0, 255);}
+li.listQ7:nth-child(2){background-color: rgb(0, 0, 255);}
+li.listQ7:nth-child(3){background-color: rgb(255, 0, 0);}
+li.listQ7:nth-child(4){background-color: rgb(0, 0, 255);}
+li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
+        </style>
+    </head>
+    <body>
+        <script>
+            //https://ninjacode.work/course/JavaScript
+            // 中級
+
+
+            // 回答用
+            function writeAnswer(questionNumber, answer) {
+                const answerStr = questionNumber + ": " + answer;
+                const h = document.createElement("h1");
+                const t = document.createTextNode(answerStr);
+                h.appendChild(t);
+                document.body.appendChild(h);
+            }
+
+            // Q1 jQuery なのでスキップ
+
+
+
+            window.onload = function() {
+
+                // Q2
+                const title = document.getElementsByClassName('title');            
+                const colorChange = document.getElementById('color-change');            
+                colorChange.onchange = function() {
+                    title[0].style.color = colorChange.value;
+                }
+
+                // Q3 
+                const lisQ3 =  document.getElementsByClassName('listQ3');
+                let max = 0;
+                for (item of lisQ3) {
+                    console.log(item.clientHeight);
+                    max = item.clientHeight > max ? item.clientHeight : max;
+                }
+                for (item of lisQ3) {
+                    item.style.height = max + "px";
+                }
+
+                // Q4
+                const lisQ4 =  document.getElementsByClassName('listQ3');
+                for (let i = 1; i < lisQ4.length; i++) {
+                    lisQ4[i].onclick = function() {
+                        writeAnswer("Q4", i);
+                    }
+                }
+
+                // Q5
+
+                const birthday =  document.getElementById('birthday');
+                const showHappyBirthday =  document.getElementsByClassName('happy-birthday');
+                birthday.onchange = function() {
+                    if (birthday.value === "1990-01-17") {
+                        showHappyBirthday[0].style.display = "block";
+                    }
+                }
+
+                // Q6
+
+                const naruhodo = (reply) => {
+                    writeAnswer("Q6", "なるほど！" + reply + "なんですね！");
+                }
+                naruhodo("テレビ");
+
+                // Q7
+                // onclick のようなイベントに、アロー演算子はあわないらしい
+                // しかし、このコードには小さな問題があります。
+                // for...ofループ内でアロー関数を使用してイベントハンドラーを定義することにより、
+                // すべてのクリックイベントが最後に処理されたitemにのみ関連付けられることになります。
+                // これは、アロー関数が外側のスコープ（この場合はfor...ofループ）のthisを捉えるためですが、
+                // ここではitemが期待される振る舞いをしません。
+                const liQ7 =  document.querySelectorAll("li.listQ7:nth-child(n)");
+                for (item of liQ7) {
+                    console.log(window.getComputedStyle(item).backgroundColor);
+                    item.onclick = function() {
+                        if (window.getComputedStyle(this).backgroundColor === "rgb(255, 0, 0)") {
+                            this.style.backgroundColor = "rgb(0, 0, 255)"
+                        }
+                    }
+                }
+
+            }
+
+            // Q8
+
+            const numberCheck = (value) => {
+                return Number.isInteger(value) ? value + " is integer!" : value + " is no integer";
+            }
+
+            writeAnswer("Q8", numberCheck(2)); // アラート出る
+            writeAnswer("Q8", numberCheck("2")); // アラート出な
+            writeAnswer("Q8", numberCheck([2])); // アラート出ない
+            writeAnswer("Q8", numberCheck(34)); // アラート出る
+            writeAnswer("Q8", numberCheck("テスト")); // アラート出る;
+
+
+            // Q9
+
+            const countChar = (value) => {
+                return Array.from(value).length;
+            }
+            writeAnswer("Q9", countChar("忍者CODE"));
+
+        </script>
+
+        <!-- for Q2 -->
+        <h1>Q2: </h1>
+        <h2 class="title">忍者CODE</h2>
+        <input type="color" id="color-change">
+
+        <!-- for Q3 and Q4 -->
+        <h1>Q3 and Q4: </h1>
+        <ul class="listQ3">
+            <li class="listQ3">これは忍者CODEの問題です。</li>
+            <li class="listQ3">これは忍者CODEの問題です。
+これは忍者CODEの問題です。これは忍者CODEの問題です。
+これは忍者CODEの問題です。これは忍者CODEの問題です。これは忍者CODEの問題です。これは忍者CODEの問題です。
+これは忍者CODEの問題です。</li>
+            <li class="listQ3">これは忍者CODEの問題です。これは忍者CODEの問題です。これは忍者CODEの問題です。これは忍者CODEの問題です。</li>
+        </ul>
+
+        <!-- for Q5 -->
+        <h1>Q5: </h1>
+        <div class="input-group mb-3">
+            <h1 class="happy-birthday">誕生日おめでとう！</h1>  
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="date" id="birthday" class="form-control" value="1990-01-01" placeholder="誕生日">
+        </div>
+
+        <!-- for Q7 -->
+        <h1>Q7: </h1>
+        <ul class="listQ7">
+            <li class="listQ7"></li>
+            <li class="listQ7"></li>
+            <li class="listQ7"></li>
+            <li class="listQ7"></li>
+            <li class="listQ7"></li>
+        </ul>
+    </body>
+</html>

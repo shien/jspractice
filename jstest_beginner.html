@@ -124,7 +124,7 @@
             //});
 
             // onclick に直接代入する。これでも可
-            triggerElement[0].onclick = () => {
+            triggerElement[0].onclick = function() {
                 targetElement[0].style.display = "";
             };
 
@@ -134,7 +134,7 @@
             const triggerElement15 = document.getElementsByClassName('trigger15');
             const targetElement15 = document.getElementsByClassName('target15');
 
-            triggerElement15[0].onclick = () => {
+            triggerElement15[0].onclick = function () {
                 targetElement15[0].style.display = "none";
             };
 
@@ -144,8 +144,8 @@
             const triggerElement16 = document.getElementsByClassName('trigger16');
             const targetElement16 = document.getElementsByClassName('target16');
 
-            triggerElement16[0].onclick = () => {
-                targetElement16[0].style.display = "block"
+            triggerElement16[0].onclick = function() {
+                targetElement16[0].style.display = "block";
                 targetElement16[0].classList.add("fadeIn16");
             };
 
@@ -155,7 +155,7 @@
             const triggerElement17 = document.getElementsByClassName('trigger17');
             const targetElement17 = document.getElementsByClassName('target17');
 
-            triggerElement17[0].onclick = () => {
+            triggerElement17[0].onclick = function() {
                 targetElement17[0].classList.add("fadeOut17");
             };
 
