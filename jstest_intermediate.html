@@ -164,6 +164,17 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
             }
             writeAnswer("Q9", countChar("忍者CODE"));
 
+
+            // Q10
+
+            const monthJudge = (value) => {
+                const now = new Date();
+                const month = now.getMonth() + 1;
+                return Number.isInteger(value) && month == value ? "現在の月です": "現在の月ではありません";
+            }
+            writeAnswer("Q10", monthJudge(7));
+            writeAnswer("Q10", monthJudge(2));
+
         </script>
 
         <!-- for Q2 -->
