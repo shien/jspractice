@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+*{margin: 0;padding: 0;list-style: none;box-sizing: border-box;}
+.list{
+    width: 1000px;
+    margin: 300px auto 0 auto;
+    overflow: hidden;
+}
+.list li{
+    padding: 20px;
+    background-color: #0c4dd5;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+.fadeIn16{
+    animation-name:fadeInAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    display: block;
+    opacity:0;
+}
+
+@keyframes fadeInAnime{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeOut17{
+    animation-name:fadeOutAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+    display: block;
+    opacity:1;
+}
+
+@keyframes fadeOutAnime{
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+    </style>
+    </head>
+    <body>
+
+        
+
+    <script>
+        //https://ninjacode.work/course/JavaScript
+        // 初級
+
+
+        function writeAnswer(questionNumber, answer) {
+            const answerStr = questionNumber + ":" + answer;
+            const h = document.createElement("h1");
+            const t = document.createTextNode(answerStr);
+            h.appendChild(t);
+            document.body.appendChild(h);
+        }
+        // Q1
+
+        const width = document.body.clientWidth;
+        writeAnswer("Q1", width);
+
+
+        // Q2
+
+        const num1 = 5;
+        const num2 = 8;
+
+        const answer_q2 = 5 + 8;
+
+        writeAnswer("Q2", answer_q2);
+
+        // Q3
+
+        const fruits1 = "りんご・バナナ";
+        const fruits2 = "レモン";
+
+        const fruits_no_banana = fruits1.substr(0,4);
+        const fruits_result = fruits_no_banana + fruits2;
+
+        writeAnswer("Q3", fruits_result);
+
+        window.onload = function() {
+
+            // Q4
+            for (var item of document.getElementsByTagName('li')) {
+                const cn = item.className;
+                item.onclick = function() {
+                    alert(cn);
+                }
+            }
+
+            // Q7 ロード完了後に実行しないと結果が帰らないため
+            // window.onload は一回のみ実行
+
+            const answer_q7 =  document.getElementsByTagName('li').length;
+            writeAnswer("Q7", answer_q7);
+
+            // Q14
+            // div にクリックイベントいれるのはだめらしいけど、問題の都合上入れた
+            const triggerElement = document.getElementsByClassName('trigger');
+            const targetElement = document.getElementsByClassName('target');
+
+            // これでも可
+            //triggerElement[0].addEventListener("click", () => {
+            //    console.log("clicked");
+            //    targetElement[0].style.display = "";
+            //});
+
+            // onclick に直接代入する。これでも可
+            triggerElement[0].onclick = () => {
+                targetElement[0].style.display = "";
+            };
+
+            //Q15
+
+            // div にクリックイベントいれるのはだめらしいけど、問題の都合上入れた
+            const triggerElement15 = document.getElementsByClassName('trigger15');
+            const targetElement15 = document.getElementsByClassName('target15');
+
+            triggerElement15[0].onclick = () => {
+                targetElement15[0].style.display = "none";
+            };
+
+            //Q16
+
+            // div にクリックイベントいれるのはだめらしいけど、問題の都合上入れた
+            const triggerElement16 = document.getElementsByClassName('trigger16');
+            const targetElement16 = document.getElementsByClassName('target16');
+
+            triggerElement16[0].onclick = () => {
+                targetElement16[0].style.display = "block"
+                targetElement16[0].classList.add("fadeIn16");
+            };
+
+            //Q17
+
+            // div にクリックイベントいれるのはだめらしいけど、問題の都合上入れた
+            const triggerElement17 = document.getElementsByClassName('trigger17');
+            const targetElement17 = document.getElementsByClassName('target17');
+
+            triggerElement17[0].onclick = () => {
+                targetElement17[0].classList.add("fadeOut17");
+            };
+
+        }
+
+        // Q5
+        async function count2seconds() {
+            return await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+        count2seconds().then(result => writeAnswer("Q5", "show 2 seconds later"));
+
+
+        // Q6
+
+        const fruits_array = ["りんご", "メロン", "バナナ"];
+        const answer_q6 = fruits_array.filter(f => f === "メロン");
+
+        writeAnswer("Q6", answer_q6);
+
+
+
+
+    </script>
+
+    <!-- for Q4-->
+    <h1> Q4: </h1>
+    <ul class="list">
+        <li class="apple">リンゴ</li>
+        <li class="orange">みかん</li>
+        <li class="grape">ぶどう</li>
+    </ul>
+
+    <!-- for Q14 -->
+    <h1> Q14: </h1>
+    <div class="trigger" style="margin-bottom: 30px;">クリックしてください</div>
+    <div class="target" style="display: none;">文字が現れるよ！</div>
+
+    <!-- for Q15 -->
+    <h1> Q15: </h1>
+    <div class="trigger15" style="margin-bottom: 30px;">クリックしてください</div>
+    <div class="target15" style="display: block;">文字が消えます</div>
+
+    <!-- for Q16 -->
+    <h1> Q16: </h1>
+    <div class="trigger16" style="margin-bottom: 30px;">クリックしてください</div>
+    <div class="target16" style="display: none">文字がふわっと現れます。</div>
+
+    <!-- for Q17 -->
+    <h1> Q17: </h1>
+    <div class="trigger17" style="margin-bottom: 30px;">クリックしてください</div>
+    <div class="target17">文字がふわっと消えます</div>
+
+    </body>
+</html>
