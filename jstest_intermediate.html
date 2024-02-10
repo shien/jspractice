@@ -59,6 +59,14 @@ li.listQ7:nth-child(2){background-color: rgb(0, 0, 255);}
 li.listQ7:nth-child(3){background-color: rgb(255, 0, 0);}
 li.listQ7:nth-child(4){background-color: rgb(0, 0, 255);}
 li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
+
+.x-scroll{
+  width: 200px;
+  padding: 30px 30px;
+  background-color: gray;
+  overflow-x:scroll;
+  white-space: nowrap;
+}
         </style>
     </head>
     <body>
@@ -142,6 +150,44 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
                     }
                 }
 
+                // Q17
+                const divQ17 =  document.querySelector("div.clone");
+                const ulQ17 =  document.querySelector("ul.clone");
+                const liQ17 =  document.querySelector("li.clone");
+
+                divQ17.onclick = function () {
+                    newNodeQ17 = liQ17.cloneNode(true);
+                    ulQ17.appendChild(newNodeQ17);
+                }
+
+                // Q18
+
+                const answerQ18 = document.querySelector("div.answer");
+                document.querySelector('input.inputQ18').addEventListener('keydown', function(event) {
+                    if (event.key === "Enter") {
+                        answerQ18.textContent = this.value;
+                    }
+                });
+
+                // Q19
+                
+                const answerQ19 = document.querySelector("div.scroll-val");
+                document.querySelector('div.x-scroll').addEventListener('scroll', function() {
+                    answerQ19.textContent = this.scrollLeft;
+                });
+
+                // Q20
+
+                const listQ20 =  document.querySelectorAll("li.listQ20");
+                const deleteQ20 = document.querySelector(".delete");
+                let count = listQ20.length - 1;
+                deleteQ20.onclick = function() {
+                    if (count < 0) return;
+                    listQ20[count].remove();
+                    count--;
+                }
+
+
             }
 
             // Q8
@@ -174,6 +220,51 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
             }
             writeAnswer("Q10", monthJudge(7));
             writeAnswer("Q10", monthJudge(2));
+
+
+            // Q11
+
+            const listQ11 = [1, 3, 5, 7];
+            listQ11.pop();
+            writeAnswer("Q11",listQ11);
+
+            // Q12
+
+            const ninjaJudge = (targetStr) => {
+                return targetStr.includes("忍者CODE");
+            }
+            writeAnswer("Q12", ninjaJudge("忍者CODE"));
+            writeAnswer("Q12", ninjaJudge("あいうえお")); // アラート出ない
+            writeAnswer("Q12", ninjaJudge("忍者CODE"));//アラート出る
+            writeAnswer("Q12", ninjaJudge("忍者コード"));//アラート出ない
+            writeAnswer("Q12", ninjaJudge("おはよう忍者CODE"));//アラート出る
+
+            // Q13 
+
+            const strQ13 = Number("28")
+            writeAnswer("Q13", typeof(strQ13));//アラート出る
+
+
+            // Q14
+
+            const strQ14 = [2,4,52,9,38];
+            writeAnswer("Q14", strQ14[3]);
+
+
+            // Q15
+            const myUpperCase = (str) => {
+                return str.toUpperCase(str);
+            }
+            writeAnswer("Q15", myUpperCase("abc"));
+
+            // Q16
+
+            const listQ16 = [2,19,59,203,5];
+            writeAnswer("Q16", listQ16.reduce((a,b)=> a>b?a:b));
+
+
+
+
 
         </script>
 
@@ -211,6 +302,34 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
             <li class="listQ7"></li>
             <li class="listQ7"></li>
             <li class="listQ7"></li>
+        </ul>
+
+        <!-- for Q17 -->
+        <h1>Q17: </h1>
+        <div class="clone">複製する</div>
+        <ul class="clone">
+            <li class="clone">忍者CODE</li>
+        </ul>
+
+        <!-- for Q18 -->
+        <h1>Q18: </h1>
+        <div class="answer"></div>
+        <input class="inputQ18" type="text">
+
+        <!-- for Q19 -->
+        <h1>Q19: </h1>
+        <div class="scroll-val">0</div>
+        <div class="x-scroll">忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者CODE忍者</div>
+
+        <!-- for Q20 -->
+        <h1>Q20: </h1>
+        <div class="delete">削除</div>
+        <ul>
+            <li class="listQ20">忍者CODE1</li>
+            <li class="listQ20">忍者CODE2</li>
+            <li class="listQ20">忍者CODE3</li>
+            <li class="listQ20">忍者CODE4</li>
+            <li class="listQ20">忍者CODE5</li>
         </ul>
     </body>
 </html>
