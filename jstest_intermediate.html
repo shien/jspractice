@@ -67,12 +67,19 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
   overflow-x:scroll;
   white-space: nowrap;
 }
-        </style>
+.blue{
+ color:blue;
+}
+#red{
+ color:red;
+}
+    </style>
     </head>
     <body>
         <script>
             //https://ninjacode.work/course/JavaScript
             // 中級
+            // クリックイベントが乗る div tag を、 button に変更
 
 
             // 回答用
@@ -101,7 +108,6 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
                 const lisQ3 =  document.getElementsByClassName('listQ3');
                 let max = 0;
                 for (item of lisQ3) {
-                    console.log(item.clientHeight);
                     max = item.clientHeight > max ? item.clientHeight : max;
                 }
                 for (item of lisQ3) {
@@ -151,11 +157,11 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
                 }
 
                 // Q17
-                const divQ17 =  document.querySelector("div.clone");
+                const buttonQ17 =  document.querySelector("button.clone");
                 const ulQ17 =  document.querySelector("ul.clone");
                 const liQ17 =  document.querySelector("li.clone");
 
-                divQ17.onclick = function () {
+                buttonQ17.onclick = function () {
                     newNodeQ17 = liQ17.cloneNode(true);
                     ulQ17.appendChild(newNodeQ17);
                 }
@@ -179,13 +185,46 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
                 // Q20
 
                 const listQ20 =  document.querySelectorAll("li.listQ20");
-                const deleteQ20 = document.querySelector(".delete");
+                const deleteQ20 = document.querySelector("button.delete");
                 let count = listQ20.length - 1;
                 deleteQ20.onclick = function() {
                     if (count < 0) return;
                     listQ20[count].remove();
                     count--;
                 }
+
+
+                // Q21
+                // data-XXXX でカスタムデータ属性を指定
+
+                const dataDeleteQ21 =  document.querySelector("[data-delete-target]");
+                document.querySelector("button.Q21-1").addEventListener("click", function() {
+                    dataDeleteQ21.removeAttribute("id");
+                });
+                document.querySelector("button.Q21-2").addEventListener("click", function() {
+                    dataDeleteQ21.removeAttribute("class");
+                });
+
+
+                // Q22
+                // body にイベントを追加する場合は、 window に追加する
+
+                const scrollQ22 =  document.querySelector("div.scroll-val-q22");
+                window.addEventListener("scroll", function() {
+                    scrollQ22.textContent = this.pageYOffset;
+                });
+
+
+                // Q23
+
+                const divQ23 = document.querySelector("div.val-q23");
+                const inputQ23 = document.querySelector("input.input-q23")
+                document.querySelector("button.add-q23").addEventListener("click", function() {
+                    divQ23.textContent = divQ23.textContent + inputQ23.value;
+                });
+
+
+
 
 
             }
@@ -306,7 +345,7 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
 
         <!-- for Q17 -->
         <h1>Q17: </h1>
-        <div class="clone">複製する</div>
+        <button class="clone">複製する</button>
         <ul class="clone">
             <li class="clone">忍者CODE</li>
         </ul>
@@ -323,7 +362,7 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
 
         <!-- for Q20 -->
         <h1>Q20: </h1>
-        <div class="delete">削除</div>
+        <button class="delete">削除</button>
         <ul>
             <li class="listQ20">忍者CODE1</li>
             <li class="listQ20">忍者CODE2</li>
@@ -331,5 +370,22 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
             <li class="listQ20">忍者CODE4</li>
             <li class="listQ20">忍者CODE5</li>
         </ul>
+
+        <!-- for Q21 -->
+        <h1>Q21: </h1>
+        <button class="Q21-1" data-delete="id">idを削除</button>
+        <button class="Q21-2" data-delete="class">classを削除</button> 
+        <div id="red" class="blue" data-delete-target>忍者CODE</div>
+
+
+        <!-- for Q22 -->
+        <h1>Q22: </h1>
+        <div class="scroll-val-q22">0</div>
+
+        <!-- for Q23 -->
+        <h1>Q23: </h1>
+        <div class="val-q23"></div>
+        <input class="input-q23" type="text">
+        <button class="add-q23">追加する</button>
     </body>
 </html>
