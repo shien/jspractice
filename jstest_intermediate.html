@@ -223,9 +223,18 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
                     divQ23.textContent = divQ23.textContent + inputQ23.value;
                 });
 
+                // Q24
 
+                document.querySelector("button.double-q24").addEventListener("dblclick", function() {
+                    this.textContent = "ダブルクリックされました！！";
+                });
 
+                // Q25
 
+                const divQ25 = document.querySelector('div.val-q25');
+                 document.querySelector('input.input-q25').addEventListener("blur", function() {
+                    divQ25.textContent = this.value;
+                });
 
             }
 
@@ -387,5 +396,15 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
         <div class="val-q23"></div>
         <input class="input-q23" type="text">
         <button class="add-q23">追加する</button>
+
+        <!-- for Q24 -->
+        <h1>Q24: </h1>
+        <button class="double-q24">ダブルクリック</button>
+
+        <!-- for Q25 -->
+        <h1>Q25: </h1>
+        <div class="val-q25"></div>
+        <input class="input-q25" type="text">
+
     </body>
 </html>
