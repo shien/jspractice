@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+.answer-q1{
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin: 300px 0 20px 0;
+}
+ul{
+    width: 1000px;
+    margin: 0 auto 0 auto;
+    display: flex;
+    list-style: none;
+}
+.li-q1{
+    height: 100px;
+    background-color: #1d4177;
+    margin-right: 10px;
+}
+li:nth-child(1){width: 200px;}
+li:nth-child(2){width: 120px;}
+li:nth-child(3){width: 300px;}
+li:nth-child(4){width: 80px;}
+li:nth-child(5){width: 160px;}
+        </style>
+    </head>
+    <body>
+        <script>
+            //https://ninjacode.work/course/JavaScript
+            // 上級
+            // クリックイベントが乗る div tag を、 button に変更
+
+
+            // 回答用
+            function writeAnswer(questionNumber, answer) {
+                const answerStr = questionNumber + ": " + answer;
+                const h = document.createElement("h1");
+                const t = document.createTextNode(answerStr);
+                h.appendChild(t);
+                document.body.appendChild(h);
+            }
+
+            // Q2
+
+            const arrayQ2 = [2,34,561,5,14];
+            const answerQ2 = arrayQ2.filter(a => (a >= 10) && (a < 100));
+            writeAnswer("Q2", answerQ2);
+
+            // Q3 
+
+            const arrayQ3n1 = ["5", 6, "3"];
+            const arrayQ3n2 = [5, 6, 3];
+            const arrayQ3n3 = [NaN, 6, 3];
+
+            const answerQ3n1 = arrayQ3n1.filter(a => typeof a === 'number' && !isNaN(a));
+            writeAnswer("Q3n1", answerQ3n1);
+            const answerQ3n2 = arrayQ3n2.filter(a => typeof a === 'number' && !isNaN(a));
+            writeAnswer("Q3n2", answerQ3n2);
+            // NaN もだめかテスト
+            const answerQ3n3 = arrayQ3n3.filter(a => typeof a === 'number' && !isNaN(a));
+            writeAnswer("Q3n3", answerQ3n3);
+
+
+            window.onload = function() {
+
+                // Q1 
+
+                const liQ1 = document.querySelectorAll("li.li-q1");
+                let sum = 0;
+                for (let i = 0; i < liQ1.length ; i++) {
+                    if (i == 2) continue;
+                    sum += liQ1[i].clientWidth;
+                }
+                const answerQ1 = document.querySelector("div.answer-q1");
+                answerQ1.textContent = sum;
+
+            }
+
+        </script>
+
+        <!-- for Q1 -->
+        <h1>Q1: </h1>
+        <div class="answer-q1"></div>
+        <ul>
+            <li class="li-q1"></li>
+            <li class="li-q1"></li>
+            <li class="li-q1"></li>
+            <li class="li-q1"></li>
+            <li class="li-q1"></li>
+        </ul>
+    </body>
+</html>
