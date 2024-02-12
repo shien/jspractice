@@ -64,6 +64,49 @@ li:nth-child(5){width: 160px;}
             writeAnswer("Q3n3", answerQ3n3);
 
 
+            // Q4 
+
+            const countStr = (str) => {
+                return str.length > 5;
+            }
+            writeAnswer("Q4", countStr("忍者CODE"));
+            writeAnswer("Q4", countStr("忍者"));
+
+
+            // Q5
+
+            const judge = (str) => {
+                const fruitsQ5 = ["りんご", "みかん", "バナナ"];
+                return fruitsQ5.includes(str);
+            }
+
+            writeAnswer("Q5", judge("みかん"));
+            writeAnswer("Q5", judge("パイナップル"));
+
+
+            // Q6
+
+            const myArray1 = ["忍者", "CO", "DE"];
+            const myArray2 = ["忍者", "CO", "DE", 9];
+            const myArray3 = [2,3,4];
+
+            const concatenateOrSum = (strOrIntegerArray) => {
+                if(strOrIntegerArray == null) return null;
+
+                if(strOrIntegerArray.every(a => typeof a === 'number')) { // すべて number?
+                    return strOrIntegerArray.filter(a => typeof a === 'number').reduce((a,b) => a + b, 0);
+                } else if (strOrIntegerArray.every(a => typeof a === 'string')){ // すべて文字列？
+                    return strOrIntegerArray.join("");
+                } else { // そのまま返す
+                    return strOrIntegerArray;
+                }
+            }
+
+            writeAnswer("Q6", concatenateOrSum(myArray1));
+            writeAnswer("Q6", concatenateOrSum(myArray2));
+            writeAnswer("Q6", concatenateOrSum(myArray3));
+            
+
             window.onload = function() {
 
                 // Q1 
