@@ -223,18 +223,79 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
                     divQ23.textContent = divQ23.textContent + inputQ23.value;
                 });
 
+
                 // Q24
 
                 document.querySelector("button.double-q24").addEventListener("dblclick", function() {
                     this.textContent = "ダブルクリックされました！！";
                 });
 
+
                 // Q25
 
                 const divQ25 = document.querySelector('div.val-q25');
-                 document.querySelector('input.input-q25').addEventListener("blur", function() {
+                document.querySelector('input.input-q25').addEventListener("blur", function() {
                     divQ25.textContent = this.value;
                 });
+
+
+                // Q26
+                // 処理負荷がある。頻繁にリサイズされると良くないので、 debounce か throttling して
+                // 対応する必要がある
+                // 
+                // debounce は一定期間内に行われた場合は無視する
+                // function debounce(func, delay) {
+                //     let inDebounce;
+                //     return function() {
+                //         const context = this;
+                //         const args = arguments;
+                //         clearTimeout(inDebounce);
+                //         inDebounce = setTimeout(() => func.apply(context, args), delay);
+                //     };
+                // }
+                // 
+                // throttling 一定期間における関数の実行回数を制限する技術
+                // 以下は throttling の例
+                //function throttle(func, limit) {
+                //    let lastFunc;
+                //    let lastRan;
+                //    return function() {
+                //        const context = this;
+                //        const args = arguments;
+                //        if (!lastRan) {
+                //            func.apply(context, args);
+                //            lastRan = Date.now();
+                //        } else {
+                //            clearTimeout(lastFunc);
+                //            lastFunc = setTimeout(function() {
+                //                if ((Date.now() - lastRan) >= limit) {
+                //                    func.apply(context, args);
+                //                    lastRan = Date.now();
+                //                }
+                //            }, limit - (Date.now() - lastRan));
+                //        }
+                //    }
+                //}
+                //
+                // 使用例：スクロールイベントにスロットリングを適用
+                //window.addEventListener('scroll', throttle(function() {
+                //    console.log('スクロールイベントが発生しました。');
+                //}, 1000));
+
+
+                const divQ26 = document.querySelector("div.val-q26");
+                window.addEventListener("resize", function() {
+                    divQ26.textContent = this.innerWidth;
+                });
+
+
+                // Q27 
+                
+                const divQ27 = document.querySelector("div.val-q27");
+                document.querySelector('input.input-q27').addEventListener('keyup', function(event) {
+                    divQ27.textContent = this.value;
+                });
+                
 
             }
 
@@ -405,6 +466,16 @@ li.listQ7:nth-child(5){background-color: rgb(0, 0, 255);}
         <h1>Q25: </h1>
         <div class="val-q25"></div>
         <input class="input-q25" type="text">
+
+        <!-- for Q26 -->
+        <h1>Q26: </h1>
+        <div class="val-q26">０</div>
+
+        <!-- for Q27 -->
+        <h1>Q27: </h1>
+        <div class="val-q27">忍者CODE</div>
+        <input class="input-q27" type="text">
+
 
     </body>
 </html>
