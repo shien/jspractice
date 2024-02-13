@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            .move01{
+                animation: move 5s ease 0s infinite normal;
+                background-color: aquamarine;
+                width: 30px;
+                height: 30px;
+            }
+            @keyframes move {
+                0% {
+                    margin-left: 30%;
+                    margin-top: 0%;
+                }
+                25% {
+                    margin-left: 60%;
+                    margin-top: 30%;
+                }
+                50%{
+                    margin-left: 30%;
+                    margin-top: 60%;
+                }
+                75% {
+                    margin-left: 0%;
+                    margin-top: 30%;
+                }
+                100% {
+                    margin-left: 30%;
+                    margin-top: 0%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="move01"></div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            .move01{
+                animation: rotate 10s ease 0s infinite normal;
+                background-color: aquamarine;
+                width: 200px;
+                height: 200px;
+                border-radius: 10%;
+            }
+            @keyframes rotate {
+                0% {
+                    transform:rotate(0deg);
+                }
+                25% {
+                    transform:rotate(90deg);
+                }
+                50% {
+                    transform:rotate(180deg);
+                }
+                75% {
+                    transform:rotate(270deg);
+                }
+                100% {
+                    transform:rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="move01"></div>
+    </body>
+</html>

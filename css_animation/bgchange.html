@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            /* https://coco-factory.jp/ugokuweb/css02/ */
+            .bgchange01{
+                animation: bgchange 10s ease 0s infinite alternate;
+                animation-fill-mode: backwards;
+                animation-delay: 2s;
+                width: 30px;
+                height: 30px;
+            }
+            @keyframes bgchange {
+                0% {
+                    background-color: white;
+                    width: 10%;
+                    
+                }
+                40% {
+                    background-color: black;
+                    width: 80%;
+                }
+                70%{
+                    background-color: blueviolet;
+                }
+                100% {
+                    background-color: green;
+                    width: 20;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bgchange01"></div>
+    </body>
+</html>
