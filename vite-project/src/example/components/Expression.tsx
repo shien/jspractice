@@ -2,8 +2,8 @@ import "./Expression.css";
 
 const Expression = () => {
 
-  const title = "Expression";
-  const arry = ["item1", "item2", "item3"];
+  const title :string = "Expression";
+  const arry: string[] = ["item1", "item2", "item3"];
   const hello = (arg :string) => `${arg} Function`;
   const jsx = <h3>Hello JSX</h3>;
 
