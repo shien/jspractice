@@ -1,0 +1,41 @@
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: aquamarine;
+    height: 50px;
+    position: fixed; 
+    /* Header 直下の子要素をコントロールできる状態になる */
+    display: flex;
+    /* 子要素の縦方向の配置を、真ん中に指定 */
+    align-items: center;
+}
+
+.header-title {
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    font-size: 20px;
+}
+
+.header-title:hover {
+    opacity: 0.5;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+}
+
+li {
+    margin: 0 0 0 15px;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 960px) {
+  .header {
+    height: 80px;
+
+  }
+}

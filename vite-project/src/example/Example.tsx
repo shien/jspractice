@@ -1,5 +1,8 @@
 import Child from "./components/Child.tsx"
 import Expression from "./components/Expression.tsx"
+import HelloTS, { Btn } from "./components/HelloTS.tsx"
+import { Header } from "./components/Header.tsx"
+import Footer from "./components/Footer.tsx"
 
 const Example = () => {
     const hello = (arg: string) => `Hello ${arg}`
@@ -37,6 +40,8 @@ const Example = () => {
                 bool={false}
                 obj={obj} />
             <Expression />
+            <HelloTS text="TypeScript">Children</HelloTS>
+            <Btn fn={(text) => console.log(`Hello ${text}`) } />
         </>
     );
 }
