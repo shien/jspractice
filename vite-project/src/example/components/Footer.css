@@ -1,0 +1,16 @@
+footer {
+    background-color: darkcyan;
+    width: 100%;
+    bottom: 0;
+    padding: 1rem;
+    flex: none;
+}
+
+h3.footer {
+    text-align: left;
+}
+
+ul.footer {
+    list-style: none;
+    display: block;
+}

@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
         <header>
             <h1 className="header-title">Title</h1>
             <nav>
-                <ul>
+                <ul className="header">
                     <HeaderLink menu="menu1" />
                     <HeaderLink menu="menu2" />
                     <HeaderLink menu="menu3" />

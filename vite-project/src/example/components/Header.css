@@ -23,12 +23,12 @@ header {
     opacity: 0.5;
 }
 
-ul {
+ul.header {
   list-style: none;
   display: flex;
 }
 
-li {
+li.header {
     margin: 0 0 0 15px;
     font-size: 14px;
 }

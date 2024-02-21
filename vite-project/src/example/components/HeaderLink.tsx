@@ -1,4 +1,3 @@
-import React from "react"
 import './HeaderLink.css'
 
 type HeaderMenu = {
@@ -6,7 +5,7 @@ type HeaderMenu = {
 }
 const HeaderLink: React.FC<HeaderMenu> = (props) => {
     return (
-        <li>{props.menu}</li>
+        <li className='header'>{props.menu}</li>
     )
 }
 
